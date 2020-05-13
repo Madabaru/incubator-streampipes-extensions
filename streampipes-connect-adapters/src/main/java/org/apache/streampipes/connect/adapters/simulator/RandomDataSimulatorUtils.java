@@ -22,6 +22,8 @@ import org.apache.streampipes.sdk.builder.adapter.GuessSchemaBuilder;
 import org.apache.streampipes.sdk.helpers.Labels;
 import org.apache.streampipes.vocabulary.SO;
 
+import java.awt.*;
+
 import static org.apache.streampipes.sdk.helpers.EpProperties.*;
 
 public class RandomDataSimulatorUtils {
@@ -30,6 +32,7 @@ public class RandomDataSimulatorUtils {
   private static final String RANDOM_NUMBER = "randomNumber";
   private static final String RANDOM_TEXT = "randomText";
   private static final String COUNT = "count";
+  private static final String LABEL = "sp_internal_label";
 
   public static GuessSchema randomSchema() {
     return GuessSchemaBuilder.create()
@@ -41,6 +44,9 @@ public class RandomDataSimulatorUtils {
                     SO.Text))
             .property(integerEp(Labels.from(COUNT, "count", "Count value"),
                     COUNT, SO.Number))
+            .property(stringEp(Labels.from(LABEL, "Label", "Related class label"),
+                    LABEL,
+                    SO.Text))
             .build();
   }
 }

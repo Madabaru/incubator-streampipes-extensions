@@ -68,10 +68,13 @@ public class RandomDataSimulator implements Runnable {
   private Map<String, Object> buildEvent(long timestamp, int counter) {
     Map<String, Object> event = new HashMap<>();
 
+    String default_label = "";
+
     event.put("timestamp", timestamp);
     event.put("randomNumber", random.nextInt(100));
     event.put("randomText", randomString());
     event.put("count", counter);
+    event.put("sp_internal_label", default_label);
     return event;
   }
 
